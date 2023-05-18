@@ -7,6 +7,9 @@ export default {
 
   theme: {
     extend: {},
+    fontFamily: {
+      bgFont: ["BalooPaaji2", "cursive"]
+    }
   },
   plugins: [require("daisyui")],
 }

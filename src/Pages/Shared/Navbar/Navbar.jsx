@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from '../../../assets/Logo.png'
-import carbanner from '../../../assets/carBanner.png'
+
 const Navbar = () => {
 
     const navItems = <>
@@ -33,8 +33,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Login</a>
-                <a className="btn ml-4">Register</a>
+                <a className="btn bg-[#09CCD0] border-0">Login</a>
+                <a className="btn ml-4 bg-[#09CCD0] border-0">Register</a>
             </div>
 
         </div>
