@@ -42,7 +42,7 @@ const SignUp = () => {
 
 
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full  shadow-2xl bg-base-100">
                     <div className="card-body">
                         <h1 className="text-3xl font-bold text-center text-[#313131]">Sign Up now!</h1>
                         <form onSubmit={handleSignUp}>
@@ -63,9 +63,21 @@ const SignUp = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" />
+
+                            </div>
+                            <div className="form-control">
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <span className="label-text">Confirm Password</span>
                                 </label>
+                                <input type="password" name='confirm' placeholder="password" className="input input-bordered" />
+
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="password" name='photo' placeholder="password" className="input input-bordered" />
+
                             </div>
                             <div className="form-control mt-6">
 
