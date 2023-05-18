@@ -16,7 +16,12 @@ const Gallery = () => {
 
     return (
         <div className="container mx-auto p-8">
-            <h1 className="text-3xl font-bold mb-4 text-center text-[#313131]">Toy Car Gallery</h1>
+
+            <div className="justify-center flex">
+                <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
+            </div>
+
+            <h1 className=" font-bold mb-4 text-4xl  text-center text-[#313131]">Toy Car Gallery</h1>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {carImages.map((imageUrl, index) => (
                     <div key={index} className="rounded-lg overflow-hidden bg-[#E8F6F7] transition-transform duration-300 transform hover:scale-105">
