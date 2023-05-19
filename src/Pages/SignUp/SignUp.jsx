@@ -1,9 +1,11 @@
 
 
-import { Link } from 'react-router-dom';
-// import img from '../../assets/signupbg.jpg'
-import { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 
 
@@ -13,8 +15,11 @@ import { AuthContext } from '../../providers/AuthProvider';
 const SignUp = () => {
 
 
-    const { createUser } = useContext(AuthContext);
-
+    const { createUser, logOut } = useContext(AuthContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -22,18 +27,43 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        const confirm = form.confirm.value;
+        const photo = form.photo.value;
+        setError('');
 
+        if (password !== confirm) {
+            setError('Your password did not match')
+            return
+        } else if (password.length < 6) {
+            setError('Password must be at least 6 characters or longer! ')
+            return
+        }
         console.log(name, email, password);
 
 
         createUser(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user)
+                const createdUser = result.user;
+                console.log(createdUser)
+                updateProfile(createdUser, {
+                    displayName: name, photoURL: photo
+                });
+
+
+                form.reset();
+                Swal.fire(
+                    'Success!',
+                    'Your Account has been created. Please Login.',
+                    'success'
+                )
+                logOut();
+                navigate('/login');
             })
             .catch(error => console.log(error))
 
     }
+
+
     return (
 
         <div className="hero min-h-screen bg-base-200" style={{ backgroundImage: `url("https://i.ibb.co/ct02pvd/signupbg.jpg")` }}>
@@ -80,7 +110,7 @@ const SignUp = () => {
 
                             </div>
                             <div className="form-control mt-6">
-
+                                <p className='text-red-600 text-center'>{error}</p>
                                 <input type="submit" value="SignUp" className="btn bg-[#09CCD0] border-0 " />
                             </div>
                         </form>

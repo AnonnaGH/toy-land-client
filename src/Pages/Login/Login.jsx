@@ -1,8 +1,9 @@
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../providers/AuthProvider';
 import { useContext } from 'react';
 import { FcGoogle } from "react-icons/fc";
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -21,6 +22,12 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
+                Swal.fire(
+                    'Success!',
+                    'Login successful!',
+                    'success'
+                )
             })
             .catch(error => console.log(error));
     }
