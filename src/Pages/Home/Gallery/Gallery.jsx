@@ -2,16 +2,20 @@
 
 const Gallery = () => {
     const carImages = [
-        'https://i.ibb.co/W6SsFkk/1-removebg-preview.png',
-        'https://i.ibb.co/3WjkHxm/9-removebg-preview.png',
-        'https://i.ibb.co/zHQBXp6/12-removebg-preview.png',
-        'https://i.ibb.co/JdSGwm3/13-removebg-preview.png',
-        'https://i.ibb.co/SmnQNG8/Capture-removebg-preview.png',
-        'https://i.ibb.co/KF3bB9s/images-1-removebg-preview.png',
-        'https://i.ibb.co/XSVsHDM/images-2-removebg-preview.png',
-        'https://i.ibb.co/B4gY1Nk/81wv0-S9v3r-L-removebg-preview.png',
-        'https://i.ibb.co/mJTYKyp/1-1-removebg-preview.png',
-        'https://i.ibb.co/DY1Jz3y/images-3-removebg-preview.png',
+
+
+        'https://i.ibb.co/xSw2qWw/Untitled-1.png',
+        'https://i.ibb.co/Hn6c0QX/2.png',
+        'https://i.ibb.co/k6Wxj7k/5.png',
+        'https://i.ibb.co/HFhQ5FF/11.png',
+
+        'https://i.ibb.co/Nxm4rYN/8.png',
+        'https://i.ibb.co/MNqPzZV/9.png',
+        'https://i.ibb.co/X8nKZG3/3.png',
+        'https://i.ibb.co/F8B9qvZ/4.png',
+        'https://i.ibb.co/z8n5PqR/10.png',
+
+        'https://i.ibb.co/9w3B81r/7.png',
     ];
 
     return (
