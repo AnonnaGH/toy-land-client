@@ -15,20 +15,20 @@ const AddAToy = () => {
     } = useForm();
     const onSubmit = (toy) => {
 
-        // fetch('https://toy-car-zone-server.vercel.app/toys', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(toy)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         alert("Toy added successfully!");
-        //         reset();
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(toy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                alert("New Toy added successfully!");
+                reset();
 
-        //     })
+            })
 
         console.log(toy);
 
