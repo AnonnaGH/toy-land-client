@@ -37,7 +37,7 @@ const SingleToyCategory = ({ singleToyCategory }) => {
           </p>
           <div className="card-actions justify-end">
 
-            <Link to={`/toys/${_id}`}> <button onClick={handleViewDetails} className="btn btn-primary">View Details</button></Link>
+            <Link to={`/toys/${_id}`}> <button onClick={handleViewDetails} className="btn bg-[#09CCD0] border-0">View Details</button></Link>
 
           </div>
         </div>

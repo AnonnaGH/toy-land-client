@@ -21,8 +21,13 @@ const AllToyCategory = () => {
     setActiveTab(tabName);
   };
   return (
-    <div>
-      <h1 className=" text-3xl text-center mt-5 p-5">Toy cars</h1>
+    <div className="mt-10">
+      <div className="justify-center flex">
+        <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
+      </div>
+
+      <h1 className=" font-bold  text-4xl  text-center text-[#313131] mb-10">Toy Car </h1>
+
 
 
 
