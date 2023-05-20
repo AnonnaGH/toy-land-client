@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import logo from '../../../assets/Logo.png'
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -13,12 +14,31 @@ const Navbar = () => {
             })
             .catch(error => console.log(error))
     }
+
+
+    const handleaddNewToyNav = () => {
+        if (user) {
+            window.location.href = '/addatoy';
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please log in first to add a new toy!',
+            }).then(() => {
+                window.location.href = '/login';
+            });
+        }
+    }
+
+
     const navItems = <>
 
         <li className="font-bold text-[#757A7B]"><Link to='/'>Home</Link></li>
         <li className="font-bold text-[#757A7B]"><Link to='/alltoys'>All Toys</Link></li>
-        <li className="font-bold text-[#757A7B]"><Link to='/mytoys'>My Toys</Link></li>
-        <li className="font-bold text-[#757A7B]"><Link to='/addatoy'>Add A Toy</Link></li>
+        <li className="font-bold text-[#757A7B]"><Link onClick={handleaddNewToyNav} to='/addatoy'>Add New Toy</Link></li>
+        {
+            user ? <li className="font-bold text-[#757A7B]"><Link to='/mytoys'>My Toys</Link></li> : ""
+        }
         <li className="font-bold text-[#757A7B]"><Link to='/blogs'>Blogs</Link></li>
 
 

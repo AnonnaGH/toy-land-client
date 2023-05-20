@@ -26,7 +26,7 @@ const AllToyCategory = () => {
         <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
       </div>
 
-      <h1 className=" font-bold  text-4xl  text-center text-[#313131] mb-10">Toy Car </h1>
+      <h1 className=" font-bold  text-4xl  text-center text-[#313131] mb-10">Shop by category </h1>
 
 
 
@@ -46,14 +46,7 @@ const AllToyCategory = () => {
         >
           Sports car
         </div>
-        {/* <div
-                onClick={() => handleTabClick("police")}
-                className={`tab  tab-lifted police ${
-                  activeTab == "police" ? " bg-red-500 text-white" : ""
-                }`}
-              >
-                Police car
-              </div> */}
+
         <div
           onClick={() => handleTabClick("truck")}
           className={`tab  tab-lifted truck ${activeTab == "truck" ? " bg-[#09CCD0] text-white" : ""

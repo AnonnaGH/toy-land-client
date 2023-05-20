@@ -1,9 +1,70 @@
+import { useContext, useEffect, useState } from "react";
+import MyToysTable from "./MyToysTable";
+import { AuthContext } from "../../providers/AuthProvider";
 
 
 const MyToys = () => {
+    const { user } = useContext(AuthContext);
+    const [allToys, setAllToys] = useState([]);
+    const url = `http://localhost:5000/my-toys/${user?.email}`;
+
+    useEffect(() => {
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => setAllToys(data));
+    }, [url]);
     return (
         <div>
-            <h1>My Toys</h1>
+            <h1 className="text-3xl text-center">My Toyes page: {allToys.length}</h1>
+
+            <div className="overflow-x-auto w-full">
+
+                <div className="form-control flex justify-center mb-4">
+                    <div className="input-group">
+                        <input
+
+                            type="text"
+                            placeholder="Search…"
+                            className="input input-bordered"
+                        />
+                        <button className="btn btn-square border-0 bg-[#09CCD0]">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <table className="table w-full ">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            <th>Toy name</th>
+                            <th>Sub Category</th>
+                            <th>Price</th>
+                            <th>Available Quantity</th>
+                            <th>Seller Name</th>
+                            <th> Action</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {allToys.map((toy) => (
+                            <MyToysTable key={toy._id} toy={toy}></MyToysTable>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
