@@ -24,7 +24,7 @@ const ToyDetails = () => {
                 <figure >
                     <img
                         src={Pictureurl}
-                        alt="Movie"
+                        alt="Toy car"
                     />
                 </figure>
                 <div className="card-body">
