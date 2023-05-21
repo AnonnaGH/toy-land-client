@@ -6,15 +6,12 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import Swal from 'sweetalert2';
-
-
-
-
+import useTitle from '../../hooks/useTitle';
 
 
 const SignUp = () => {
 
-
+    useTitle('Sign Up');
     const { createUser, logOut } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -59,7 +56,23 @@ const SignUp = () => {
                 logOut();
                 navigate('/login');
             })
-            .catch(error => console.log(error))
+            .catch((error) => {
+                setError(error.message);
+                if (error.code === 'auth/user-not-found') {
+                    Swal.fire('Error!', 'User does not exist.', 'error');
+                } else if (error.code === 'auth/wrong-password') {
+                    Swal.fire('Error!', 'Invalid password.', 'error');
+                }
+                else if (error.code === 'auth/email-already-in-use') {
+                    Swal.fire('Error!', 'This Email Is Already In Use. Try to login!.', 'error');
+
+                    navigate('/login');
+                }
+                else {
+                    Swal.fire('Error!', 'Sign up failed.', 'error');
+                }
+                form.reset();
+            });
 
     }
 

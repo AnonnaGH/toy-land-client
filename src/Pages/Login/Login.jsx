@@ -1,14 +1,16 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../providers/AuthProvider';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-
+    useTitle('Login');
 
     const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -29,7 +31,16 @@ const Login = () => {
                     'success'
                 )
             })
-            .catch(error => console.log(error));
+            .catch((err) => {
+                setError(err.message);
+                if (err.code === 'auth/user-not-found') {
+                    Swal.fire('Error!', 'User does not exist.', 'error');
+                } else if (err.code === 'auth/wrong-password') {
+                    Swal.fire('Error!', 'Wrong password.', 'error');
+                } else {
+                    Swal.fire('Error!', 'Login failed.', 'error');
+                }
+            });
     }
 
     const handleGoogleSignIn = () => {
@@ -73,7 +84,7 @@ const Login = () => {
                                 <input type="submit" value="Login" className="btn bg-[#09CCD0] border-0" />
                             </div>
                         </form>
-                        <p className='my-4 text-center'>New to Car Doctors ? <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+                        <p className='my-4 text-center'>New to Toy Land ? <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
                         <div className="divider">OR</div>
                         <button onClick={handleGoogleSignIn} className=" flex align-middle justify-center border hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-l"> <FcGoogle className="text-2xl me-2"></FcGoogle> <span>Continue with Google</span></button>
                         <p className='text-center flex'></p>

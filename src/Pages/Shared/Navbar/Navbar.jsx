@@ -13,22 +13,19 @@ const Navbar = () => {
 
             })
             .catch(error => console.log(error))
-    }
+    };
 
 
     const handleaddNewToyNav = () => {
-        if (user) {
-            window.location.href = '/addatoy';
-        } else {
+        if (!user) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Please log in first to add a new toy!',
-            }).then(() => {
-                window.location.href = '/login';
             });
+
         }
-    }
+    };
 
 
     const navItems = <>
