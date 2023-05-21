@@ -45,7 +45,7 @@ const MyToys = () => {
                 <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
             </div>
 
-            <h1 className=" font-bold  text-4xl  text-center text-[#605f5f]">My Toyes  {allToys.length}</h1>
+            <h1 className=" font-bold mb-20 lg:mb-0 md:mb-0 text-4xl  text-center text-[#605f5f]">My Toyes  {allToys.length}</h1>
 
             <div className="overflow-x-auto w-full">
 
