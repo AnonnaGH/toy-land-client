@@ -18,7 +18,7 @@ const AddAToy = () => {
     } = useForm();
     const onSubmit = (toy) => {
 
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-land-server-p4cjvnjxo-anonnagh.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

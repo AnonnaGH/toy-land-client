@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
 
+import Aos from "aos";
+import 'aos/dist/aos.css'
+
+
 const TopToysTrend = () => {
+    useEffect(() => {
+        Aos.init({ duration: 1500 });
+    }, [])
+
     const [countdown, setCountdown] = useState({
         days: '11',
         hours: '10',
@@ -39,9 +47,9 @@ const TopToysTrend = () => {
     return (
         <div className="mt-20 mb-10 bg-center bg-cover py-12" style={{ backgroundImage: 'url("https://i.ibb.co/Ydx1wVp/Untitled-1.png")' }}>
             <div className="text-center text-white">
-                <h2 className="text-2xl font-semibold text-[#484747]">BIG DISCOUNT EVER</h2>
-                <h1 className=" text-4xl md:text-6xl font-extrabold my-4 text-[#4b4b4b] mb-8">Top Toys Trend</h1>
-                <div className="flex flex-wrap justify-center mb-8">
+                <h2 data-aos="zoom-in" className="text-2xl font-semibold text-[#484747]">BIG DISCOUNT EVER</h2>
+                <h1 data-aos="zoom-in" className=" text-4xl md:text-6xl font-extrabold my-4 text-[#4b4b4b] mb-8">Top Toys Trend</h1>
+                <div data-aos="fade-up" className="flex flex-wrap justify-center mb-8">
                     <div className="flex items-center mr-6">
                         <div className="bg-white rounded-full p-4 text-4xl font-bold mr-1 text-[#313131]">{countdown.days} </div>
                         <div className="text-[#313131] font-bold text-sm">Days</div>

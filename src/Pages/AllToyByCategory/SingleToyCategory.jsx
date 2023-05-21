@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from 'sweetalert2'
+import Aos from "aos";
+import 'aos/dist/aos.css'
 
 
 const SingleToyCategory = ({ singleToyCategory }) => {
-
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+  }, [])
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -19,14 +23,12 @@ const SingleToyCategory = ({ singleToyCategory }) => {
         icon: 'error',
         title: 'Oops...',
         text: 'Please log in first to see details!',
-      }).then(() => {
-        navigate("/login");
-      });
+      })
     }
   };
   return (
     <div>
-      <div className="card bg-base-100 shadow-xl">
+      <div data-aos="zoom-out" className="card bg-[#f8fdfd] shadow-xl ">
         <figure>
           <img className="card-image" src={Pictureurl} alt="Shoes" />
         </figure>

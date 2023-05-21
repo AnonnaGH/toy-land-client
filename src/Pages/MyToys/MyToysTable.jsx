@@ -32,7 +32,7 @@ const MyToysTable = ({ toy }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log("delete", _id);
-                fetch(`http://localhost:5000/toys/${_id}`, {
+                fetch(`https://toy-land-server-p4cjvnjxo-anonnagh.vercel.app/toys/${_id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())

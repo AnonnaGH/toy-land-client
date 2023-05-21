@@ -9,7 +9,7 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [allToys, setAllToys] = useState([]);
     const [searchText, setSearchText] = useState("")
-    const url = `http://localhost:5000/my-toys/${user?.email}`;
+    const url = `https://toy-land-server-p4cjvnjxo-anonnagh.vercel.app/my-toys/${user?.email}`;
 
     useEffect(() => {
         fetch(url)
@@ -19,7 +19,7 @@ const MyToys = () => {
 
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/toySearchByName/${searchText}`)
+        fetch(`https://toy-land-server-p4cjvnjxo-anonnagh.vercel.app/toySearchByName/${searchText}`)
             .then((res) => res.json())
             .then((data) => setAllToys(data));
     }

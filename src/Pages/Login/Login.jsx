@@ -30,6 +30,8 @@ const Login = () => {
                     'Login successful!',
                     'success'
                 )
+                navigate(from), { replace: true }
+
             })
             .catch((err) => {
                 setError(err.message);

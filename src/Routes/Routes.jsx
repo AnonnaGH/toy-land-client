@@ -26,12 +26,12 @@ const router = createBrowserRouter([
             {
                 path: '/alltoys',
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/toys')
+                loader: () => fetch('https://toy-land-server-p4cjvnjxo-anonnagh.vercel.app/toys')
             },
             {
                 path: '/toys/:id',
                 element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toys/details/${params.id}`)
+                loader: ({ params }) => fetch(`https://toy-land-server-p4cjvnjxo-anonnagh.vercel.app/toys/details/${params.id}`)
             },
             {
                 path: '/mytoys',
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
             {
                 path: "/update/:id",
                 element: <Update></Update>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toysUpdate/${params.id}`)
+                loader: ({ params }) => fetch(`https://toy-land-server-p4cjvnjxo-anonnagh.vercel.app/toysUpdate/${params.id}`)
             },
             {
                 path: '/addatoy',

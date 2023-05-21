@@ -8,7 +8,7 @@ const reviews = [
         id: 1,
         name: 'Benjamin',
         comment: 'I bought this toy car for my nephew, and it exceeded my expectations. The quality is excellent, and it has a great range of motion. The remote control is easy to use, even for a young child, and the car responds quickly to commands.',
-        image: 'https://i.ibb.co/pvdDRXn/3-a4479e1a-cbd3-48af-834e-2c8093b00d76-140x140-1.png',
+        image: 'https://i.ibb.co/pvdDRXn/3-a4479e1a-cbd3-48af-834e-nn2c8093b00d76-140x140-1.png',
     },
     {
         id: 2,

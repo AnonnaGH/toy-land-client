@@ -13,7 +13,7 @@ const Update = () => {
     } = useForm();
 
     const handleToyUpdate = (data) => {
-        fetch(`http://localhost:5000/toysUpdate/${id}`, {
+        fetch(`https://toy-land-server-p4cjvnjxo-anonnagh.vercel.app/toysUpdate/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -38,7 +38,7 @@ const Update = () => {
 
     // Fetch toy data and set default values
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/details/${id}`)
+        fetch(`https://toy-land-server-p4cjvnjxo-anonnagh.vercel.app/toys/details/${id}`)
             .then((res) => res.json())
             .then((toy) => {
                 // Set default values for form inputs using setValue
