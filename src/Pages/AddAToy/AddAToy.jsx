@@ -54,7 +54,13 @@ const AddAToy = () => {
                     onSubmit={handleSubmit(onSubmit)}
                     className="p-7 bg-white rounded shadow-md"
                 >
-                    <h1 className="text-3xl text-center">Add new toy</h1>
+
+                    <div className="justify-center flex">
+                        <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
+                    </div>
+
+                    <h1 className=" font-bold  text-4xl  text-center text-[#605f5f] mb-10">Add new toy</h1>
+
                     <div className="divider"></div>
                     <div className="grid grid-cols-2 gap-4">
                         <div>

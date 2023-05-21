@@ -26,7 +26,7 @@ const AllToyCategory = () => {
         <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
       </div>
 
-      <h1 className=" font-bold  text-4xl  text-center text-[#313131] mb-10">Shop by category </h1>
+      <h1 className=" font-bold  text-4xl  text-center text-[#605f5f] mb-10">Shop by category </h1>
 
 
 

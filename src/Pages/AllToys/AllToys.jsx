@@ -11,7 +11,12 @@ const AllToys = () => {
 
     return (
         <div>
-            <h1 className="text-3xl text-center">All Toys page: {toys.length}</h1>
+
+            <div className="justify-center flex mt-10">
+                <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
+            </div>
+
+            <h1 className="font-bold  text-4xl  text-center text-[#605f5f] mb-10">All Toys : {toys.length}</h1>
 
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">

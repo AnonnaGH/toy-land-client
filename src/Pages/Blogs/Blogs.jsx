@@ -4,6 +4,18 @@ const Blogs = () => {
     return (
 
         <div className="bg-[#ddf2f4] px-10">
+
+            <div className="justify-center flex items-center  bg-white  py-10">
+                <div>
+                    <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
+                    <h1 className=" font-bold  text-4xl  text-center text-[#605f5f]">Blog</h1>
+                </div>
+            </div>
+
+
+
+
+
             <div className=" border  ">
                 <h1 className="font-bold p-4">1.What is an access token and refresh token? How do they work and where should we store them on the client-side?
                 </h1>

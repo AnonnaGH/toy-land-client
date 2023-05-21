@@ -22,9 +22,24 @@ const MyToys = () => {
             .then((data) => setAllToys(data));
     }
 
+
+    const handleSort = (sortOrder) => {
+        // Sort the toys based on price
+        const sortedToys = [...allToys].sort((a, b) => {
+            if (sortOrder === "asc") {
+                return a.Price - b.Price;
+            } else {
+                return b.Price - a.Price;
+            }
+        });
+
+        // Update the sorted toys in the state
+        setAllToys(sortedToys);
+    };
+
     return (
         <div>
-            <div className="justify-center flex">
+            <div className="justify-center flex mt-10">
                 <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
             </div>
 
@@ -32,30 +47,51 @@ const MyToys = () => {
 
             <div className="overflow-x-auto w-full">
 
-                <div className="form-control flex justify-center mb-4">
-                    <div className="input-group">
-                        <input
-                            onChange={(e) => setSearchText(e.target.value)}
-                            type="text"
-                            placeholder="Search…"
-                            className="input input-bordered"
-                        />
-                        <button onClick={handleSearch} className="btn btn-square border-0 bg-[#09CCD0]">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
+                <div className="flex justify-between px-6">
+                    <div>
+                        <div className="dropdown">
+                            <label tabIndex={0} className="btn m-1  bg-[#09CCD0] border-0">
+                                Sort by Price
+                            </label>
+                            <ul
+                                tabIndex={0}
+                                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                             >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                />
-                            </svg>
-                        </button>
+                                <li onClick={() => handleSort("asc")}>
+                                    <a>Low to High</a>
+                                </li>
+                                <li onClick={() => handleSort("desc")}>
+                                    <a>High to Low</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="form-control flex justify-center mb-4">
+                        <div className="input-group">
+                            <input
+                                onChange={(e) => setSearchText(e.target.value)}
+                                type="text"
+                                placeholder="Search…"
+                                className="input input-bordered"
+                            />
+                            <button onClick={handleSearch} className="btn btn-square border-0 bg-[#09CCD0]">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-6 w-6"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <table className="table w-full ">
