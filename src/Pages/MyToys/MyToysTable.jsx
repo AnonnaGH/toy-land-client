@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AiFillDelete } from "react-icons/ai";
+import { BsPencilSquare } from "react-icons/bs";
 import Swal from 'sweetalert2';
 const MyToysTable = ({ toy }) => {
 
@@ -60,6 +61,14 @@ const MyToysTable = ({ toy }) => {
                 <td>${Price}</td>
                 <td>{AvailableQuantity}</td>
                 <td>{SellerName}</td>
+                <th>
+                    <Link to={`/update/${toy._id}`}>
+                        <button>
+                            {" "}
+                            <BsPencilSquare className="text-2xl" /> Update
+                        </button>
+                    </Link>
+                </th>
                 <th>
 
                     <button onClick={handleDelete} className="flex ">

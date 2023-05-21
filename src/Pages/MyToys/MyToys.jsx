@@ -6,6 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [allToys, setAllToys] = useState([]);
+    const [searchText, setSearchText] = useState("")
     const url = `http://localhost:5000/my-toys/${user?.email}`;
 
     useEffect(() => {
@@ -13,21 +14,33 @@ const MyToys = () => {
             .then((res) => res.json())
             .then((data) => setAllToys(data));
     }, [url]);
+
+
+    const handleSearch = () => {
+        fetch(`http://localhost:5000/toySearchByName/${searchText}`)
+            .then((res) => res.json())
+            .then((data) => setAllToys(data));
+    }
+
     return (
         <div>
-            <h1 className="text-3xl text-center">My Toyes page: {allToys.length}</h1>
+            <div className="justify-center flex">
+                <img src="https://i.ibb.co/Tk9kZCM/Group-2-2.jpg" alt="" />
+            </div>
+
+            <h1 className=" font-bold  text-4xl  text-center text-[#605f5f]">My Toyes  {allToys.length}</h1>
 
             <div className="overflow-x-auto w-full">
 
                 <div className="form-control flex justify-center mb-4">
                     <div className="input-group">
                         <input
-
+                            onChange={(e) => setSearchText(e.target.value)}
                             type="text"
                             placeholder="Search…"
                             className="input input-bordered"
                         />
-                        <button className="btn btn-square border-0 bg-[#09CCD0]">
+                        <button onClick={handleSearch} className="btn btn-square border-0 bg-[#09CCD0]">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-6 w-6"
