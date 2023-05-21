@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AddAToy = () => {
@@ -25,8 +26,18 @@ const AddAToy = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                alert("New Toy added successfully!");
-                reset();
+                Swal.fire(
+                    'Success!',
+                    'New toy added successful!',
+                    'success'
+                )
+                    .then(() => {
+                        reset()
+                    })
+                    .then(() => {
+                        window.location.href = '/mytoys'
+                    })
+
 
             })
 

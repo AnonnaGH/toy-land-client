@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AiFillDelete } from "react-icons/ai";
+import Swal from 'sweetalert2';
 const MyToysTable = ({ toy }) => {
 
     const loadedUsers = useLoaderData();
@@ -19,7 +20,37 @@ const MyToysTable = ({ toy }) => {
         email,
     } = toy;
 
+    const handleDelete = () => {
+        Swal.fire({
+            title: "Confirm Delete",
+            text: `Are you sure you want to delete this toy: "${ToyName}"?`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Delete",
+            cancelButtonText: "Cancel",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log("delete", _id);
+                fetch(`http://localhost:5000/toys/${_id}`, {
+                    method: "DELETE",
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                "Deleted!",
+                                ` ${ToyName} has been deleted.`,
+                                "success"
+                            ).then(() => {
+                                window.location.reload();
+                            });
 
+                        }
+                    });
+            }
+        });
+    };
 
     return (
         <>
@@ -31,7 +62,7 @@ const MyToysTable = ({ toy }) => {
                 <td>{SellerName}</td>
                 <th>
 
-                    <button className="flex ">
+                    <button onClick={handleDelete} className="flex ">
                         <AiFillDelete className="text-3xl" />
                         <span>Delete</span>
                     </button>
