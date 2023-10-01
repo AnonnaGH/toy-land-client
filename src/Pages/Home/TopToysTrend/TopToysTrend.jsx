@@ -27,7 +27,7 @@ const TopToysTrend = () => {
     }, []);
 
     function calculateCountdown() {
-        const targetDate = new Date('2023-07-01');
+        const targetDate = new Date('2023-12-01');
         const currentDate = new Date();
         const timeDifference = targetDate - currentDate;
 
